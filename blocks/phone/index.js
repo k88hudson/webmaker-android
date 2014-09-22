@@ -17,18 +17,21 @@ module.exports = {
             }
         }
     },
-    callMe: function() {
-        console.log(self.$data.attributes.number.value);
-        if (!window.MozActivity) return;
-        if (self.$parent.$parent.$data.params.mode !== 'play') return;
+    ready: function () {
+        var self = this;
 
-        e.preventDefault();
-        new MozActivity({
-            name: 'new',
-            data: {
-                type: 'webtelephony/number',
-                number: self.$data.attributes.number.value
-            }
-        });
+        // Call phone function
+        self.$data.callMe = function (e) {
+            if (!window.MozActivity) return;
+            if (self.$parent.$parent.$data.params.mode !== 'play') return;
+            e.preventDefault();
+            new MozActivity({
+                name: 'new',
+                data: {
+                    type: 'webtelephony/number',
+                    number: self.$data.attributes.number.value
+                }
+            });
+        };
     }
 };
