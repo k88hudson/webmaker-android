@@ -1,5 +1,6 @@
 var App = require('../../lib/app');
 var view = require('../../lib/view');
+var Data = require('../../lib/data');
 
 module.exports = view.extend({
     id: 'play',
@@ -19,5 +20,13 @@ module.exports = view.extend({
         self.title = app.data.name;
 
         self.$data.onDone = '/make/' + id + '/share';
+
+		// Listen for Data Submitted by the User
+		var data = new Data(id);
+
+		self.$on('dataChange', function(blockId, key, value) {
+			data.collect(blockId, key, value);
+		});
+
     }
 });
