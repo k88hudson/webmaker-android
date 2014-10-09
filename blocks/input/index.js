@@ -29,18 +29,10 @@ module.exports = {
     },
 	methods: {
 		reportDataChange: function(self) {
-			console.log(self.$data);
-			if(self.$data.attributes.inputType.value == 0) {
-				self.$dispatch('dataChange',
-					self.$index,
-					self.$el.querySelector('input').value
-				);
-			} else {
-				self.$dispatch('dataChange',
-					self.$index,
-					self.$el.querySelector('textarea').innerHTML
-				);
-			}
+			self.$dispatch('dataChange',
+				this.$index,
+				self.$el.value
+			);
 		}
 	},
 	ready: function() {
@@ -49,6 +41,13 @@ module.exports = {
 		if(self.$parent.$parent.$data.params.mode !== 'play') {
             if (self.$el.querySelector('input')) self.$el.querySelector('input').disabled = 'disabled';
             if (self.$el.querySelector('textfield')) self.$el.querySelector('textfield').disabled = 'disabled';
+		} else {
+			// register block on data object
+			self.$dispatch('dataChange',
+				self.$index,
+				'',
+				self.$data.attributes.label.value
+			);
 		}
 
 		this.$watch('attributes.value.value', function (value, mutation) {
