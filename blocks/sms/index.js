@@ -1,26 +1,28 @@
 module.exports = {
     className: 'sms',
     template: require('./index.html'),
-    data: {
-        name: 'SMS',
-        icon: '/images/blocks_sms.png',
-        attributes: {
-            value: {
-                label: 'Phone #',
-                type: 'string',
-                value: '+18005555555'
-            },
-            messageBody: {
-                label: 'Message',
-                type: 'string',
-                value: ''
-            },
-            innerHTML: {
-                label: 'Label',
-                type: 'string',
-                value: 'Send SMS'
+    data: function () {
+        return {
+            name: 'SMS',
+            icon: '/images/blocks_sms.png',
+            attributes: {
+                value: {
+                    label: 'Phone #',
+                    type: 'string',
+                    value: '+18005555555'
+                },
+                messageBody: {
+                    label: 'Message',
+                    type: 'string',
+                    value: ''
+                },
+                innerHTML: {
+                    label: 'Label',
+                    type: 'string',
+                    value: 'Send SMS'
+                }
             }
-        }
+        };
     },
     ready: function () {
         var self = this;

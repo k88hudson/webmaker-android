@@ -2,7 +2,7 @@ var i18n = require('../../lib/i18n');
 
 module.exports = {
     className: 'app-cell',
-    data: {
+    methods: {
         onClick: function () {
             this.$data.enteredEditorFrom = '/profile';
         }

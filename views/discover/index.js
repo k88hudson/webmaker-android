@@ -4,10 +4,12 @@ var fakeDiscovery  = require('../../lib/fake-discovery');
 module.exports = view.extend({
     id: 'discover',
     template: require('./index.html'),
-    data: {
-        title: 'Discover',
-        apps: fakeDiscovery,
-        mode: 'featured'
+    data: function () {
+        return {
+            title: 'Discover',
+            apps: fakeDiscovery,
+            mode: 'featured'
+        };
     },
     created: function () {
         this.$data.created = this.model.data.apps;

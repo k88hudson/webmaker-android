@@ -1,23 +1,25 @@
 module.exports = {
     className: 'submit',
     template: require('./index.html'),
-    data: {
-        name: 'Submit',
-        icon: '/images/blocks_submit.png',
-        attributes: {
-            innerHTML: {
-                label: 'Button Text',
-                type: 'string',
-                value: 'Submit',
-                skipAutoRender: true
-            },
-            color: {
-                label: 'Button Color',
-                type: 'color',
-                value: '#32B2D2',
-                skipAutoRender: true
+    data: function () {
+        return {
+            name: 'Submit',
+            icon: '/images/blocks_submit.png',
+            attributes: {
+                innerHTML: {
+                    label: 'Button Text',
+                    type: 'string',
+                    value: 'Submit',
+                    skipAutoRender: true
+                },
+                color: {
+                    label: 'Button Color',
+                    type: 'color',
+                    value: '#32B2D2',
+                    skipAutoRender: true
+                }
             }
-        }
+        };
     },
     methods: {
         save: function (e) {

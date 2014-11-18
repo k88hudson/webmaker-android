@@ -3,11 +3,13 @@ var Data = require('../../../lib/data');
 module.exports = {
     id: 'data-editor',
     template: require('./index.html'),
-    data: {
-        options: ['Newest', 'Oldest'],
-        currentDataSets: {},
-        initialDataLoaded: false,
-        isInteractive: true
+    data: function () {
+        return {
+            options: ['Newest', 'Oldest'],
+            currentDataSets: {},
+            initialDataLoaded: false,
+            isInteractive: true
+        };
     },
     ready: function () {
         var self = this;

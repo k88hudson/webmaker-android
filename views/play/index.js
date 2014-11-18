@@ -5,9 +5,11 @@ var Data = require('../../lib/data');
 module.exports = view.extend({
     id: 'play',
     template: require('./index.html'),
-    data: {
-        back: true,
-        doneLabel: 'Publish'
+    data: function () {
+        return {
+            back: true,
+            doneLabel: 'Publish'
+        };
     },
     created: function () {
         var self = this;

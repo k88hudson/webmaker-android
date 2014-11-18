@@ -4,9 +4,11 @@ var view = require('../../lib/view');
 module.exports = view.extend({
     id: 'edit',
     template: require('./index.html'),
-    data: {
-        back: true,
-        doneLabel: 'Publish'
+    data: function () {
+        return {
+            back: true,
+            doneLabel: 'Publish'
+        };
     },
     created: function () {
         var self = this;

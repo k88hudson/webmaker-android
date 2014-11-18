@@ -1,29 +1,31 @@
 module.exports = {
     className: 'dropdown',
     template: require('./index.html'),
-    data: {
-        name: 'Dropdown',
-        icon: '/images/blocks_text.png',
-        attributes: {
-            label: {
-                label: 'Title',
-                type: 'string',
-                value: '',
-                placeholder: 'Your title goes here',
-                skipAutoRender: true
-            },
-            color: {
-                label: 'Title Text Color',
-                type: 'color',
-                value: '#638093'
-            },
-            elements: {
-                label: 'Options',
-                type: 'list',
-                skipAutoRender: true,
-                items: ['', '']
+    data: function () {
+        return {
+            name: 'Dropdown',
+            icon: '/images/blocks_text.png',
+            attributes: {
+                label: {
+                    label: 'Title',
+                    type: 'string',
+                    value: '',
+                    placeholder: 'Your title goes here',
+                    skipAutoRender: true
+                },
+                color: {
+                    label: 'Title Text Color',
+                    type: 'color',
+                    value: '#638093'
+                },
+                elements: {
+                    label: 'Options',
+                    type: 'list',
+                    skipAutoRender: true,
+                    items: ['', '']
+                }
             }
-        }
+        };
     },
     methods: {
         reportDataChange: function (self) {

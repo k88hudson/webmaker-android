@@ -24,9 +24,11 @@ module.exports = view.extend({
     id: 'block',
     template: require('./index.html'),
     components: editorModels,
-    data: {
-        title: 'Edit',
-        back: true
+    data: function() {
+        return {
+            title: 'Edit',
+            back: true
+        };
     },
     created: function () {
         var self = this;

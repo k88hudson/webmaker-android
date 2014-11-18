@@ -1,9 +1,11 @@
 module.exports = {
     id: 'publish-footer',
     template: require('./index.html'),
-    data: {
-        showFooter: false,
-        showInstall: false
+    data: function () {
+        return {
+            showFooter: false,
+            showInstall: false
+        };
     },
     methods: {
         toggleShowFooter: function (e) {

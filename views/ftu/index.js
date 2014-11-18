@@ -28,17 +28,19 @@ module.exports = view.extend({
             }
         }
     },
-    data: {
-        personas: [
-            'vendors',
-            'students',
-            'teachers',
-            'parents',
-            'doctors',
-            'activists',
-            'journalists',
-            'scientists',
-            'you'
-        ]
+    data: function () {
+        return {
+            personas: [
+                'vendors',
+                'students',
+                'teachers',
+                'parents',
+                'doctors',
+                'activists',
+                'journalists',
+                'scientists',
+                'you'
+            ]
+        };
     }
 });

@@ -4,9 +4,11 @@ var page = require('page');
 module.exports = view.extend({
     id: 'profile',
     template: require('./index.html'),
-    data: {
-        title: 'My Profile',
-        back: false
+    data: function () {
+        return {
+            title: 'My Profile',
+            back: false
+        };
     },
     computed: {
         user: function () {

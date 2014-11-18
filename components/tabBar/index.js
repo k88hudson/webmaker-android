@@ -1,7 +1,6 @@
 module.exports = {
     id: 'tabBar',
     template: require('./index.html'),
-    data: {},
     attached: function () {
         var el = this.$el;
         function onFocus(e) {

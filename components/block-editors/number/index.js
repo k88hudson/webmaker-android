@@ -1,7 +1,9 @@
 module.exports = {
     id: 'number-editor',
     template: require('./index.html'),
-    data: {
-        value: 0
+    data: function () {
+        return {
+            value: 0
+        };
     }
 };

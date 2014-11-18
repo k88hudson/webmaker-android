@@ -31,26 +31,28 @@ module.exports = view.extend({
             $data.selectedGroup = $data.selectedGroup || 0;
         });
     },
-    data: {
-        back: true,
-        title: 'Select Color',
-        onSelect: function (color) {
-            var $data = this.$data;
-            var attrs = $data.block.attributes;
-            $data.selectedColor = color;
-            attrs.color.value = $data.selectedColor;
-        },
-        onGroupSelect: function (i) {
-            this.$data.selectedGroup = i;
-            this.onSelect(colorGroups[i]);
-        },
-        colorGroups: colorGroups,
-        colors: colorGroups.map(function (base) {
-            var tints = [];
-            for (var i = -5; i < 10; i++) {
-                tints.push(utils.shadeColor(base, i * 6));
-            }
-            return tints;
-        })
+    data: function () {
+        return {
+            back: true,
+            title: 'Select Color',
+            onSelect: function (color) {
+                var $data = this.$data;
+                var attrs = $data.block.attributes;
+                $data.selectedColor = color;
+                attrs.color.value = $data.selectedColor;
+            },
+            onGroupSelect: function (i) {
+                this.$data.selectedGroup = i;
+                this.onSelect(colorGroups[i]);
+            },
+            colorGroups: colorGroups,
+            colors: colorGroups.map(function (base) {
+                var tints = [];
+                for (var i = -5; i < 10; i++) {
+                    tints.push(utils.shadeColor(base, i * 6));
+                }
+                return tints;
+            })
+        };
     }
 });

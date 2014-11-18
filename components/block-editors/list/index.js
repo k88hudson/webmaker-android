@@ -1,7 +1,9 @@
 module.exports = {
     id: 'list-editor',
     template: require('./index.html'),
-    data: {
-        items: ['']
+    data: function () {
+        return {
+            items: ['']
+        };
     }
 };

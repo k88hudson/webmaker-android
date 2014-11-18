@@ -5,9 +5,11 @@ var App = require('../../lib/app');
 module.exports = view.extend({
     id: 'templates',
     template: require('./index.html'),
-    data: {
-        title: 'Make',
-        templates: templates
+    data: function () {
+        return {
+            title: 'Make',
+            templates: templates
+        };
     },
     ready: function () {
         var self = this;

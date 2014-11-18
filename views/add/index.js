@@ -9,23 +9,25 @@ var app = null;
 module.exports = view.extend({
     id: 'add',
     template: require('./index.html'),
-    data: {
+    data: function () {
         // Provide a specific sort order
-        blocks: [
-            blocks.text,
-            blocks.image,
-            blocks.sms,
-            blocks.phone,
+        return {
+            blocks: [
+                blocks.text,
+                blocks.image,
+                blocks.sms,
+                blocks.phone,
 
-            // Include spacers for missing blocks
-            undefined,
-            undefined,
+                // Include spacers for missing blocks
+                undefined,
+                undefined,
 
-            // Form / data blocks
-            blocks.input,
-            blocks.spinner,
-            blocks.submit
-        ]
+                // Form / data blocks
+                blocks.input,
+                blocks.spinner,
+                blocks.submit
+            ]
+        };
     },
     created: function () {
         var self = this;

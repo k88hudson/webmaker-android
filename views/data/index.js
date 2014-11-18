@@ -5,8 +5,10 @@ var Data = require('../../lib/data');
 module.exports = view.extend({
     id: 'data',
     template: require('./index.html'),
-    data: {
-        initialDataLoaded: false
+    data: function () {
+        return {
+            initialDataLoaded: false
+        };
     },
     created: function () {
         var self = this;

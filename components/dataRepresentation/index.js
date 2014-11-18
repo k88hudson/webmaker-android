@@ -1,12 +1,14 @@
 var dataRepresentation = module.exports = {
     id: 'dataRepresentation',
     template: require('./index.html'),
-    data: {
-        isInteractive: true,
-        sortOldest: false,
-        sortKey: 'submitted',
-        sortOptions: ['Newest', 'Oldest'],
-        initialDataLoaded: false
+    data: function () {
+        return {
+            isInteractive: true,
+            sortOldest: false,
+            sortKey: 'submitted',
+            sortOptions: ['Newest', 'Oldest'],
+            initialDataLoaded: false
+        };
     },
     methods: Object.create(null)
 };

@@ -29,9 +29,11 @@ i18n.setLocale('en-US', true);
 var app = new Vue({
     el: '#app',
     components: componentList,
-    data: {
-        title: json.name,
-        app: json
+    data: function () {
+        return {
+            title: json.name,
+            app: json
+        };
     }
 });
 

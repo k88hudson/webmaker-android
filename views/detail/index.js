@@ -6,9 +6,11 @@ var utils = require('../../lib/utils');
 module.exports = view.extend({
     id: 'detail',
     template: require('./index.html'),
-    data: {
-        back: true,
-        title: 'App'
+    data: function () {
+        return {
+            back: true,
+            title: 'App'
+        };
     },
     methods: {
         create: function () {

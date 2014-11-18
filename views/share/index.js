@@ -9,12 +9,14 @@ var PUBLISH_TIMEOUT = 20000;
 module.exports = view.extend({
     id: 'share',
     template: require('./index.html'),
-    data: {
-        title: 'Share',
-        cancel: true,
-        error: false,
-        isPublishing: true,
-        doneDisabled: true
+    data: function () {
+        return {
+            title: 'Share',
+            cancel: true,
+            error: false,
+            isPublishing: true,
+            doneDisabled: true
+        };
     },
     methods: {
         login: function (e) {
