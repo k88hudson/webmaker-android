@@ -3,7 +3,7 @@ var view = require('../../lib/view');
 module.exports = view.extend({
     id: 'sign-in',
     template: require('./index.html'),
-    data: function() {
+    data: function () {
         return {
             loginError: false
         };
@@ -34,6 +34,8 @@ module.exports = view.extend({
     },
     created: function () {
         var self = this;
+        self.$log();
+        self.$el.id = this.id;
         self.model.auth.on('error', function (err) {
             console.log('Login error', err);
             self.$data.loginError = 'Oops, there was a problem logging in.';

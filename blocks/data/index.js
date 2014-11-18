@@ -1,7 +1,11 @@
 var Data = require('../../lib/data');
 
 module.exports = {
-    className: 'data',
+    el: function () {
+        var el = document.createElement('el');
+        el.className = 'data';
+        return el;
+    },
     template: require('./index.html'),
     data: function () {
         return {
