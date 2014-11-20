@@ -38,6 +38,8 @@ module.exports = {
     ready: function () {
         var self = this;
 
+        self.$el.className = 'dropdown';
+
         if (self.isEditing) {
             self.$el.querySelector('select').disabled = 'disabled';
             self.$el.querySelector('select').style.pointerEvents = 'none';

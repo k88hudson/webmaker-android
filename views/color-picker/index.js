@@ -12,7 +12,6 @@ var colorGroups = [
 var app = null;
 
 module.exports = view.extend({
-    id: 'color-picker',
     template: require('./index.html'),
     created: function () {
         var self = this;
@@ -54,5 +53,8 @@ module.exports = view.extend({
                 return tints;
             })
         };
+    },
+    ready: function () {
+        this.$el.id = 'color-picker';
     }
 });

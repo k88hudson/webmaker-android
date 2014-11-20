@@ -3,7 +3,6 @@ var view = require('../../lib/view');
 var Data = require('../../lib/data');
 
 module.exports = view.extend({
-    id: 'data',
     template: require('./index.html'),
     data: function () {
         return {
@@ -34,5 +33,8 @@ module.exports = view.extend({
         self.$on('dataDelete', function (firebaseId) {
             data.delete(firebaseId);
         });
+    },
+    ready: function () {
+        this.$el.id = 'data';
     }
 });

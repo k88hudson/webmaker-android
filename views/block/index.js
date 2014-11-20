@@ -21,7 +21,6 @@ for (id in editorModels) {
 id = null;
 
 module.exports = view.extend({
-    id: 'block',
     template: require('./index.html'),
     components: editorModels,
     data: function() {
@@ -55,5 +54,8 @@ module.exports = view.extend({
             app.remove(index);
             global.history.back();
         };
+    },
+    ready: function () {
+        this.$el.id = 'block';
     }
 });

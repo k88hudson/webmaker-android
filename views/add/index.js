@@ -7,7 +7,6 @@ var id = null;
 var app = null;
 
 module.exports = view.extend({
-    id: 'add',
     template: require('./index.html'),
     data: function () {
         // Provide a specific sort order
@@ -42,6 +41,8 @@ module.exports = view.extend({
     },
     ready: function () {
         var self = this;
+
+        self.$el.id = 'add';
 
         // Click handler
         function clickHandler (e) {
