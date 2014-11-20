@@ -4,7 +4,6 @@ var templates = require('../../lib/templates.json');
 var utils = require('../../lib/utils');
 
 module.exports = view.extend({
-    id: 'detail',
     template: require('./index.html'),
     data: function () {
         return {
@@ -35,5 +34,8 @@ module.exports = view.extend({
         // Bind app
         self.$data.id = id;
         self.$data.app = app;
+    },
+    ready: function () {
+        this.$el.id = 'detail';
     }
 });

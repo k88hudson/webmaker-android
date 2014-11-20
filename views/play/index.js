@@ -3,7 +3,6 @@ var view = require('../../lib/view');
 var Data = require('../../lib/data');
 
 module.exports = view.extend({
-    id: 'play',
     template: require('./index.html'),
     data: function () {
         return {
@@ -36,5 +35,8 @@ module.exports = view.extend({
                 self.$broadcast('dataSaveSuccess');
             }
         });
+    },
+    ready: function () {
+        this.$el.id = 'play';
     }
 });

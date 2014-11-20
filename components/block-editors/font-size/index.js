@@ -1,4 +1,6 @@
 module.exports = {
-    id: 'font-size-editor',
-    template: require('./index.html')
+    template: require('./index.html'),
+    ready: function () {
+        this.$el.id = 'font-size-editor';
+    }
 };

@@ -1,5 +1,4 @@
 module.exports = {
-    id: 'tabBar',
     template: require('./index.html'),
     attached: function () {
         var el = this.$el;
@@ -20,5 +19,8 @@ module.exports = {
         }
         document.addEventListener('focus', onFocus, true);
         document.addEventListener('blur', onBlur, true);
+    },
+    ready: function () {
+        this.$el.id = 'tabBar';
     }
 };

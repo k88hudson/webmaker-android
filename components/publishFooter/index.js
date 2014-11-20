@@ -1,5 +1,4 @@
 module.exports = {
-    id: 'publish-footer',
     template: require('./index.html'),
     data: function () {
         return {
@@ -20,6 +19,7 @@ module.exports = {
     },
     created: function () {
         var self = this;
+        self.$el.id = 'publish-footer';
 
         // Todo: we should abstract this into a component or common method
         var overlay = document.createElement('div');

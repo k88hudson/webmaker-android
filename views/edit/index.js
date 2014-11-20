@@ -2,7 +2,6 @@ var App = require('../../lib/app');
 var view = require('../../lib/view');
 
 module.exports = view.extend({
-    id: 'edit',
     template: require('./index.html'),
     data: function () {
         return {
@@ -24,5 +23,8 @@ module.exports = view.extend({
             app.removeApp();
             self.page('/profile');
         };
+    },
+    ready: function () {
+        this.$el.id = 'edit';
     }
 });

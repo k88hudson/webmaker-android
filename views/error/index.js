@@ -1,7 +1,6 @@
 var view = require('../../lib/view');
 
 module.exports = view.extend({
-    id: 'error',
     template: require('./index.html'),
     computed: {
         message: function () {
@@ -22,5 +21,8 @@ module.exports = view.extend({
             this.$root.params.code +
             ': ' +
             global.location.pathname);
+    },
+    ready: function () {
+        this.$el.id = 'error';
     }
 });

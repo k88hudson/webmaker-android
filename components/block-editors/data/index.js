@@ -1,7 +1,6 @@
 var Data = require('../../../lib/data');
 
 module.exports = {
-    id: 'data-editor',
     template: require('./index.html'),
     data: function () {
         return {

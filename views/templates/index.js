@@ -3,7 +3,6 @@ var view = require('../../lib/view');
 var App = require('../../lib/app');
 
 module.exports = view.extend({
-    id: 'templates',
     template: require('./index.html'),
     data: function () {
         return {
@@ -13,6 +12,7 @@ module.exports = view.extend({
     },
     ready: function () {
         var self = this;
+        self.$el.id = 'templates';
 
         // Click handler
         function clickHandler (e) {

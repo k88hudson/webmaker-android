@@ -1,5 +1,4 @@
 module.exports = {
-    className: 'slide-toggle',
     template: require('./index.html'),
     paramAttributes: ['model', 'left', 'right', 'left-label', 'right-label'],
     methods: {
@@ -26,5 +25,8 @@ module.exports = {
     },
     created: function () {
         if (!this.val) this.val = this.left;
+    },
+    ready: function () {
+        this.$el.className = 'slide-toggle';
     }
 };

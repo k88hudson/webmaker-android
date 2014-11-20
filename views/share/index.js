@@ -7,7 +7,6 @@ var page = require('page');
 var PUBLISH_TIMEOUT = 20000;
 
 module.exports = view.extend({
-    id: 'share',
     template: require('./index.html'),
     data: function () {
         return {
@@ -34,6 +33,8 @@ module.exports = view.extend({
     },
     ready: function () {
         var self = this;
+
+        self.$el.id = 'share';
 
         // Fetch app
         var id = self.$parent.$data.params.id;

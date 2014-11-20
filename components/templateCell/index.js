@@ -1,4 +1,6 @@
 module.exports = {
-    id: 'templateCell',
-    template: require('./index.html')
+    template: require('./index.html'),
+    ready: function () {
+        this.$el.className = 'templateCell';
+    }
 };

@@ -2,7 +2,6 @@ var view = require('../../lib/view');
 var page = require('page');
 
 module.exports = view.extend({
-    id: 'profile',
     template: require('./index.html'),
     data: function () {
         return {
@@ -41,5 +40,8 @@ module.exports = view.extend({
                 page('/sign-in');
             });
         }
+    },
+    ready: function () {
+        this.$el.id = 'profile';
     }
 });

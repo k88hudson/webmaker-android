@@ -5,5 +5,8 @@ module.exports = {
         return {
             value: 0
         };
+    },
+    ready: function () {
+        this.$el.id = 'number-editor';
     }
 };

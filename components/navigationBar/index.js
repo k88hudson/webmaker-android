@@ -1,7 +1,7 @@
 var page = require('page');
 
 module.exports = {
-    id: 'navigationBar',
+    inherit: true,
     template: require('./index.html'),
     data: function () {
         return {
@@ -17,5 +17,8 @@ module.exports = {
                 global.history.back();
             }
         };
+    },
+    ready: function () {
+        this.$el.id = 'navigationBar';
     }
 };
