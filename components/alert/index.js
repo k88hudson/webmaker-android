@@ -1,5 +1,5 @@
 module.exports = {
-    className: 'alert-container',
+    name: 'alert',
     template: require('./index.html'),
     paramAttributes: ['type', 'message', 'no-margin'],
     computed: {
@@ -15,5 +15,8 @@ module.exports = {
             }
             return classes;
         }
+    },
+    ready: function () {
+        this.$el.className = 'alert-container';
     }
 };

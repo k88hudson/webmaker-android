@@ -6,5 +6,8 @@ module.exports = {
             options: [''],
             value: 0
         };
+    },
+    ready: function () {
+        this.$el.id = 'dropdownChoice-editor';
     }
 };

@@ -10,7 +10,10 @@ var dataRepresentation = module.exports = {
             initialDataLoaded: false
         };
     },
-    methods: Object.create(null)
+    methods: Object.create(null),
+    ready: function () {
+        this.$el.id = 'dataRepresentation';
+    }
 };
 
 dataRepresentation.methods.formatUnixTime = function (unix) {

@@ -12,6 +12,7 @@ module.exports = function (callback) {
 
     cache.generateFromDir('./build', function (err, content) {
         if (err) return callback(err);
+        console.log(content);
         fs.writeFile('./build/manifest.appcache', content, callback);
     });
 };

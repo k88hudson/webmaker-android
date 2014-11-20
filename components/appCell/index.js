@@ -1,7 +1,7 @@
 var i18n = require('../../lib/i18n');
 
 module.exports = {
-    className: 'app-cell',
+    name: 'app-cell',
     methods: {
         onClick: function () {
             this.$data.enteredEditorFrom = '/profile';
@@ -13,5 +13,8 @@ module.exports = {
         guestKey: function () {
             return i18n.get('Guest');
         }
+    },
+    ready: function () {
+        this.$el.className = 'app-cell';
     }
 };

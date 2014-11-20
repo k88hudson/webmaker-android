@@ -5,5 +5,8 @@ module.exports = {
         return {
             items: ['']
         };
+    },
+    ready: function () {
+        this.$el.id = 'list-editor';
     }
 };

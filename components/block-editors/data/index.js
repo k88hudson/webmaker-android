@@ -14,6 +14,8 @@ module.exports = {
     ready: function () {
         var self = this;
 
+        self.$el.id = 'data-editor';
+
         if (
             !self.$data ||
             !self.$data.currentDataSets ||
