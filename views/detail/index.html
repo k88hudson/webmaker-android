@@ -5,14 +5,14 @@
         <img class="app-icon" src="{{app.icon}}" alt="{{app.name}}">
         <hgroup>
             <h3>{{app.name}}</h3>
-            <p class="text-light" v-bind-html="'by _'" v-with="name: app.author.username"></p>
+            <p class="text-light" v-bind-html="'by _'"></p>
         </hgroup>
     </header>
     <ul id="detail-share">
-        <li v-if="!isTemplate"><a href="/make/{{id}}/share">
+        <li v-if="!isTemplate"><a href="/make/{{app.id}}/share">
             <span class="fa fa-2x fa-fw fa-share-alt"></span><br>{{ 'Share' | i18n }}</a>
         </li>
-        <li v-if="!isTemplate"><a href="/make/{{id}}/play">
+        <li v-if="!isTemplate"><a href="/make/{{app.id}}/play">
             <span class="fa fa-2x fa-fw fa-eye"></span><br>{{ 'Open' | i18n }}</a>
         </li>
         <li v-if="isTemplate"><a href="" class="disabled">

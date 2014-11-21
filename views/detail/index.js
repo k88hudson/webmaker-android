@@ -11,6 +11,11 @@ module.exports = view.extend({
             title: 'App'
         };
     },
+    computed: {
+        name: function () {
+            return this.$data.app.author.username;
+        }
+    },
     methods: {
         create: function () {
             var self = this;

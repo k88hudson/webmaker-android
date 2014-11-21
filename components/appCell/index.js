@@ -2,6 +2,7 @@ var i18n = require('../../lib/i18n');
 
 module.exports = {
     name: 'app-cell',
+    inherit: true,
     methods: {
         onClick: function () {
             this.$data.enteredEditorFrom = '/profile';
@@ -10,8 +11,9 @@ module.exports = {
     template: require('./index.html'),
     paramAttributes: ['mode'],
     computed: {
-        guestKey: function () {
-            return i18n.get('Guest');
+        name: function () {
+            var username = this.$data.app.author && this.$data.app.author.username;
+            return username || i18n.get('Guest');
         }
     },
     ready: function () {
