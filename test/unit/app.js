@@ -76,7 +76,6 @@ describe('App instance', function () {
     describe('interface', function () {
         it('should have expected properties', function () {
             assert.equal(app.id, mockId);
-            assert.equal(typeof app.data, 'object');
             assert(app.storage instanceof Fb);
         });
 
@@ -91,25 +90,29 @@ describe('App instance', function () {
 
     describe('insert', function () {
         it('should insert a block', function () {
-            app.insert('text');
-            assert.equal(app.data.blocks[0].id, 'text');
+            var blocks = [{}, {}];
+            app.insert('text', blocks);
+            assert.equal(blocks[0].id, 'text');
         });
         it('should do nothing if the blockId does not exist', function () {
-            var oldLength = app.data.blocks.length;
-            app.insert('banana');
-            assert.equal(app.data.blocks.length, oldLength)
+            var blocks = [{}, {}];
+            var oldLength = blocks.length;
+            app.insert('banana', blocks);
+            assert.equal(blocks.length, oldLength)
         });
     });
 
     describe('remove', function () {
         it('should remove a block', function () {
-            app.remove(0);
-            assert.equal(app.data.blocks.length, 0);
+            var blocks = [{}, {}];
+            app.remove(0, blocks);
+            assert.equal(blocks.length, 1);
         });
         it('should do nothing if the block index does not exist', function () {
-            var oldLength = app.data.blocks.length;
-            app.remove(100);
-            assert.equal(app.data.blocks.length, oldLength);
+            var blocks = [{}, {}];
+            var oldLength = blocks.length;
+            app.remove(100, blocks);
+            assert.equal(blocks.length, oldLength);
         });
     });
 
