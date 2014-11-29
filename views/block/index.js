@@ -9,6 +9,7 @@ var throttle = require('lodash.throttle');
 var app = null;
 var index = null;
 var id = null;
+var blocks = null;
 
 // Rename editor components
 for (id in editorModels) {
@@ -31,7 +32,7 @@ module.exports = view.extend({
     methods: {
         remove: function (e) {
             e.preventDefault();
-            app.remove(index);
+            app.remove(index, blocks);
             global.history.back();
         },
         getEditor: function (type) {
@@ -55,16 +56,19 @@ module.exports = view.extend({
             var app = snapshot.val();
             self.$root.isReady = true;
             if (!app || !app.blocks) return;
+            blocks = snapshot.val().blocks;
             self.$data.block = snapshot.val().blocks[index];
         });
         self.$data.index = index;
 
-        self.$watch('block.attributes', throttle(function (newVal) {
+        var onWatch = throttle(function (newVal) {
             if (!newVal) return;
             var clone = JSON.parse(JSON.stringify(newVal));
             app.updateBlock(index, {
                 attributes: clone
             });
-        }, 3000));
+        }, 3000);
+
+        self.$watch('block.attributes', onWatch);
     }
 });

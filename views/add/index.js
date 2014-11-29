@@ -5,6 +5,7 @@ var blocks = new Blocks();
 
 var id = null;
 var app = null;
+var appBlocks = null;
 
 module.exports = view.extend({
     id: 'add',
@@ -39,6 +40,7 @@ module.exports = view.extend({
         app.storage.on('value', function (snapshot) {
             self.$root.isReady = true;
             if (!snapshot.val()) return;
+            appBlocks = snapshot.val().blocks;
             self.$data.app = snapshot.val() || {};
             self.$data.app.id = snapshot.key();
 
@@ -57,7 +59,7 @@ module.exports = view.extend({
             var blockId = e.currentTarget.getAttribute('data-block');
 
             // Add block to make
-            app.insert(blockId);
+            app.insert(blockId, appBlocks);
 
             // Add to model & redirect to editor
             self.page('/make/' + id + '/edit');
