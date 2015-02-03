@@ -23,7 +23,7 @@ module.exports = view.extend({
     methods: {
         login: function (e) {
             e.preventDefault();
-            this.model.auth.login();
+            //this.model.auth.login();
         },
         onDone: function () {
             this.sendSMS();

@@ -32,9 +32,9 @@ module.exports = view.extend({
     },
     created: function () {
         var self = this;
-        self.model.auth.on('error', function (err) {
-            console.log('Login error', err);
-            self.$data.loginError = 'Oops, there was a problem logging in.';
-        });
+        // self.model.auth.on('error', function (err) {
+        //     console.log('Login error', err);
+        //     self.$data.loginError = 'Oops, there was a problem logging in.';
+        // });
     }
 });
