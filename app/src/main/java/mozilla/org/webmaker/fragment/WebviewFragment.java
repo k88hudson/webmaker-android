@@ -94,6 +94,7 @@ public class WebviewFragment extends Fragment {
         public void onPageFinished(WebView view, String url) {
             animate(view);
             view.setVisibility(View.VISIBLE);
+            view.loadUrl("javascript: window.Test()");
             super.onPageFinished(view, url);
         }
 
