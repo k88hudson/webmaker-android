@@ -1,8 +1,8 @@
 var React = require('react');
 var render = require('../../lib/render.jsx');
 
-window.Test = function () {
-  console.log('Test');
+window.LogFromAndroid = function (text) {
+  console.log(text);
 };
 
 var Main = React.createClass({

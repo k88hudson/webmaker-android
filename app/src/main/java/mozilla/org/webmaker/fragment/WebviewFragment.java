@@ -15,6 +15,7 @@ import android.view.animation.DecelerateInterpolator;
 import mozilla.org.webmaker.R;
 import android.util.Log;
 import android.content.Context;
+import android.view.MotionEvent;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class WebviewFragment extends Fragment {
@@ -64,6 +65,12 @@ public class WebviewFragment extends Fragment {
         mWebView.setBackgroundColor(0x00000000);
         mWebView.addJavascriptInterface(new WebAppInterface(mView.getContext()), "Android");
         mWebView.setWebContentsDebuggingEnabled(true);
+        mWebView.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                mWebView.loadUrl("javascript: window.LogFromAndroid('" + event.getAction() + "')");
+                return true;
+            }
+        });
 
         return mView;
     }
@@ -94,7 +101,7 @@ public class WebviewFragment extends Fragment {
         public void onPageFinished(WebView view, String url) {
             animate(view);
             view.setVisibility(View.VISIBLE);
-            view.loadUrl("javascript: window.Test()");
+            view.loadUrl("javascript: window.LogFromAndroid('Page loaded')");
             super.onPageFinished(view, url);
         }
 
