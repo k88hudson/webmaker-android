@@ -1,10 +1,37 @@
 @import "normalize";
-@import "project-map";
+@import "colors";
+
+// Components -----------------------------------------------------------------
+
+@import "components/link/link";
+@import "components/button/button";
+@import "components/range/range";
+@import "components/color-group/color-group";
+@import "components/color-spectrum/color-spectrum";
+@import "components/tabs/tabs";
+@import "components/action-menu/action-menu";
+@import "components/project-snapshot/project-snapshot";
+@import "components/select/select";
+@import "components/option-panel/option-panel";
+@import "components/alert/alert";
+
+// Pages ----------------------------------------------------------------------
+
+@import "pages/editor/editor";
+@import "pages/map/map";
+@import "pages/project/project";
+@import "pages/discover/discover";
+@import "pages/make/make";
+@import "pages/tinker/tinker";
+@import "pages/style-guide/style-guide";
 
 *,
 *:after,
 *:before {
   box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
@@ -15,80 +42,34 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  background: #E9EBF0;
+  font-family: 'Roboto', sans-serif;
+}
+
+code, pre {
+  font-family: menlo, monospace;
+  font-size: inherit;
 }
 
 #app {
   height: 100%;
 }
 
-.container {}
-
-.tile {
-  display: inline-block;
-  border: 1px solid #CCC;
-  padding: 5px;
-  background: white;
-  img {
-    display: block;
-    max-width: 300px;
+.container {
+  height: 100%;
+  > div {
+    background: @lightGrey;
+    min-height: 100%;
   }
 }
 
-.demo {
-  padding: 20px;
-  text-align: center;
-}
-
-.tile.tile-demo {
-  position: relative;
-  .inner {
-    width: 280px;
-    height: 400px;
-    background: #F0CF62;
-  }
-  .img {
-    position: absolute;
-    top: 100px;
-    left: 40px;
-    width: 150px;
-    &.editable {
-      border: 1px dashed #669EFF;
-    }
-    img {
-      width: 100%;
-      display: block;
-    }
-  }
-}
-
-.editor-preview {
-  text-align: center;
-  padding: 20px;
-  background: #F0CF62;
-  img {
-    width: 150px;
-  }
-}
-.editor-options {
-  padding: 10px;
-  label, input, button {
-    width: 100%;
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px;
-  }
-}
-
-.tile.map-tile {
-  background: #F0CF62;
-  float: left;
-  margin-left: 10px;
-  margin-top: 10px;
-  width: 150px;
-  height: 200px;
-  img {
-    width: 50px;
-  }
+// Screen readers only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
 }

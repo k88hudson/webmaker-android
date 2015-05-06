@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="mozilla.org.webmaker" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-feature android:name="android.hardware.screen.portrait" />
+
     <application
         android:name=".WebmakerApplication"
         android:allowBackup="true"
@@ -10,7 +14,8 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,34 +23,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Map"
+            android:name=".activity.Map"
             android:label="@string/title_activity_map"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".Project"
+            android:name=".activity.Project"
             android:label="@string/title_activity_project"
-            android:parentActivityName=".Map" >
+            android:parentActivityName=".activity.Map"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="mozilla.org.webmaker.Map" />
+                android:value=".activity.Map" />
         </activity>
         <activity
-            android:name=".Editor"
+            android:name=".activity.Editor"
             android:label="@string/title_activity_editor"
-            android:parentActivityName=".Project" >
+            android:parentActivityName=".activity.Project"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="mozilla.org.webmaker.Project" />
+                android:value=".activity.Project" />
         </activity>
         <activity
-            android:name=".Tinker"
+            android:name=".activity.Tinker"
             android:label="@string/title_activity_tinker"
-            android:parentActivityName=".Editor" >
+            android:parentActivityName=".activity.Editor"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="mozilla.org.webmaker.Editor" />
+                android:value=".activity.Editor" />
         </activity>
     </application>
-
 </manifest>
