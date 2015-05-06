@@ -199,7 +199,7 @@ var Map = React.createClass({
         </div>
         <Menu>
           <SecondaryButton side="right" off={!this.state.selectedEl} onClick={this.removePage} icon="../../img/trash.svg" />
-          <PrimaryButton url="/projects/123" off={!this.state.selectedEl} href="/pages/project" icon="../../img/pencil.svg" />
+          <PrimaryButton url="/projects/123" off={!this.state.selectedEl} href="/pages/page" icon="../../img/pencil.svg" />
         </Menu>
       </div>
     );
