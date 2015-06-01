@@ -72,7 +72,6 @@ var Project = React.createClass({
       height,
       gutter
     });
-    this.load();
   },
 
   componentDidUpdate: function (prevProps) {
@@ -109,6 +108,7 @@ var Project = React.createClass({
       maxScale: MAX_ZOOM
     });
 
+    this.load();
   },
 
   getZoom: function () {
@@ -456,7 +456,7 @@ var Project = React.createClass({
 
     var isPlayOnly = this.state.params.mode === 'play';
 
-    if (this.state.isPageZoomed) {
+    if (this.state.isPageZoomed && this.$boundingEl) {
       this.$boundingEl.panzoom('disable');
     }
 
