@@ -442,11 +442,11 @@ var Project = React.createClass({
 
     api({
       method: 'patch',
-      uri: `/users/1/projects/${this.state.params.project}/pages/${this.state.routeData.pageID}/elements/${this.state.routeData.elementID}`,
+      uri: this.state.routeData.linkUpdateUrl,
       json: {
         attributes: {
           targetPageId: this.state.selectedEl,
-          targetProjectId: 1
+          targetProjectId: this.state.params.project
         }
       }
     }, (err, data) => {
