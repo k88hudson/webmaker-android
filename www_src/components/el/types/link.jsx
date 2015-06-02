@@ -76,7 +76,10 @@ var Link = React.createClass({
       onPClick = false;
     }
 
-    return <Element className="btn" style={style} onClick={onPClick} href={props.href}>{content}</Element>;
+    return <Element className="btn" style={style} onClick={onPClick} href={props.href}>
+      {content}
+      {this.props.targetPageId}-{this.props.targetProjectId}
+    </Element>;
   }
 });
 
