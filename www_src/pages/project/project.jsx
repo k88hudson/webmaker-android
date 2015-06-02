@@ -451,7 +451,7 @@ var Project = React.createClass({
       if (err) {
         console.error('There was an error updating the element', err);
       }
-      console.log(data);
+      console.log('updated setDestination: ' + data.attributes.targetPageId);
 
       if (window.Android) {
         // window.Android.setView(pageUrl);
