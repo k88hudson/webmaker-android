@@ -38,6 +38,14 @@ module.exports = {
       if (typeof routeData !== 'undefined') {
         data = JSON.parse(routeData);
       }
+    } else {
+      data = {
+        linkUpdateUrl: '/users/1/projects/26/pages/602/elements/704',
+        linkAttributes: {
+          innerHTML: 'Tap me',
+          href: ''
+        }
+      };
     }
 
     return data;

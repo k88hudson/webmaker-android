@@ -438,16 +438,15 @@ var Project = React.createClass({
   },
 
   setDestination: function () {
-    // var pageUrl = `/projects/${this.state.params.project}/pages/${this.state.routeData.pageID}`;
+
+    var attributes = this.state.routeData.linkAttributes;
+    attributes.targetPageId = this.state.selectedEl;
+    attributes.targetProjectId = this.state.params.project;
+
     api({
       method: 'patch',
-      uri: `/users/1/projects/${this.state.routeData.projectId}/pages/${this.state.routeData.pageID}/elements/${this.state.routeData.elementID}`,
-      json: {
-        attributes: {
-          targetPageId: this.state.selectedEl,
-          targetProjectId: this.state.params.project
-        }
-      }
+      uri: this.state.routeData.linkUpdateUrl,
+      json: {attributes}
     }, (err, data) => {
       if (err) {
         console.error('There was an error updating the element', err);

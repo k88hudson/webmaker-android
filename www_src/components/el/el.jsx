@@ -91,6 +91,7 @@ var El = React.createClass({
   },
 
   onLinkDestClick: function () {
+    console.log(this.props);
     if (this.props.targetPageId) {
       if (window.Android) {
         console.log(this.props.targetProjectId, this.props.targetPageId);
