@@ -56,9 +56,9 @@ module.exports = React.createClass({
   render: function() {
     var props = this.props;
     var style = {
-      whiteSpace: 'nowrap',
-      overflow: "hidden",
-      textOverflow: "ellipsis"
+      whiteSpace: 'pre',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
     };
 
     [
@@ -77,6 +77,7 @@ module.exports = React.createClass({
     if (this.state.editing) {
       onPClick = false;
     }
+
     return <p ref="dims" style={style} onClick={onPClick}>{content}</p>;
   }
 });

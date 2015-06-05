@@ -12,7 +12,7 @@ module.exports = {
 
   componentDidUpdate: function(prevProps, prevState) {
     if (this.refs.input) {
-      this.resizeInput();
+      // this.resizeInput();
       var el = this.refs.input.getDOMNode();
       el.focus();
 
@@ -95,8 +95,8 @@ module.exports = {
     }
 
     return [
-      this.state.initialload ? false : <input ref="input" style={inputStyle} hidden={this.state.initialload} onClick={this.killEvent} onKeyDown={this.checkForStop} onChange={this.onTextUpdate} value={content} />,
-      <span ref="sizer" style={this.state.initialload ? inputStyle : sizerstyle}>{ content }</span>
+      this.state.initialload ? false : <textarea ref="input" hidden={this.state.initialload} onClick={this.killEvent} onChange={this.onTextUpdate}>{content}</textarea>,
+      <span ref="sizer" style={this.state.initialload ? inputStyle : sizerstyle}>{content}</span>
     ];
   },
 
@@ -121,7 +121,7 @@ module.exports = {
 
   // send our current value up to our parent for handling
   onTextUpdate: function(evt) {
-    this.resizeInput();
+   // this.resizeInput();
     var value = evt.target.value;
     this.props.updateText(value);
   },
