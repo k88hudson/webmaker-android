@@ -557,8 +557,9 @@ var Project = React.createClass({
   },
 
   onModerationSubmit: function (params) {
-    this.setState({params});
-    this.load();
+    this.setState({params}, () => {
+      this.load();
+    });
   },
 
   render: function () {
