@@ -7,6 +7,7 @@ var render = require('../../lib/render.jsx');
 var router = require('../../lib/router');
 var Cartesian = require('../../lib/cartesian');
 var Loading = require('../../components/loading/loading.jsx');
+var ModerationMenu = require('../../components/moderation/moderation.jsx');
 
 var {Menu, PrimaryButton, SecondaryButton, FullWidthButton} = require('../../components/action-menu/action-menu.jsx');
 var types = require('../../components/basic-element/basic-element.jsx').types;
@@ -555,6 +556,11 @@ var Project = React.createClass({
     });
   },
 
+  onModerationSubmit: function (params) {
+    this.setState({params});
+    this.load();
+  },
+
   render: function () {
     // Prevent pull to refresh
     document.body.style.overflowY = 'hidden';
@@ -616,6 +622,8 @@ var Project = React.createClass({
           <PrimaryButton onClick={this.zoomFromPage} off={!this.state.isPageZoomed} icon="../../img/zoom-out.svg" />
           <FullWidthButton onClick={this.setDestination} off={this.state.params.mode !== 'link' || !this.state.selectedEl}>Set Destination</FullWidthButton>
         </Menu>
+
+        <ModerationMenu params={this.state.params} onSubmit={this.onModerationSubmit} />
 
         <Loading on={this.state.loading} />
       </div>
